@@ -421,7 +421,7 @@ footer nav a:hover { color: var(--turq); }
       <div class="sec-head">
         <div class="eyebrow">The library</div>
         <h2>Books that turned the wheel</h2>
-        <p>Every book I have read and would put in your hands, with a note on why. Each links to Amazon. <span class="example-tag">Starter shelf</span></p>
+        <p>Every book I have read and would put in your hands, with a note on why. Each links to Amazon.</p>
       </div>
       <div class="filters" id="filters" role="group" aria-label="Filter books"></div>
       <div class="shelf" id="shelf"></div>
@@ -725,22 +725,45 @@ footer nav a:hover { color: var(--turq); }
 
   /* ---------- library ---------- */
   var AMAZON_TAG = ""; /* add the Amazon Associates tag here, e.g. "stefanjohn-21" */
+  var AMAZON_STORE = "www.amazon.com"; /* or "www.amazon.nl" */
   var BOOKS = [
-    { t: "The Gene Keys", a: "Richard Rudd", c: "Gene Keys", s: "--sea", why: "The source text: 64 Shadows, Gifts and Siddhis. A book to live with for years, not to finish." },
-    { t: "Man and His Symbols", a: "C.G. Jung", c: "Jung", s: "--rose", why: "Jung's most readable book, written for everyone. The best first door into dreams and archetypes." },
-    { t: "Memories, Dreams, Reflections", a: "C.G. Jung", c: "Jung", s: "--rose", why: "Jung's inner autobiography. Shows how a life can be lived from the inside out." },
-    { t: "Owning Your Own Shadow", a: "Robert A. Johnson", c: "Jung", s: "--rose", why: "A small book about the Shadow that you can read in one evening and keep using for life." },
-    { t: "Psychology and Alchemy", a: "C.G. Jung", c: "Alchemy", s: "--gold", why: "Where Jung shows that the alchemists were describing the soul's transformation." },
-    { t: "The Kybalion", a: "Three Initiates", c: "Alchemy", s: "--gold", why: "The seven Hermetic principles in plain language. As above, so below." },
-    { t: "The Holographic Universe", a: "Michael Talbot", c: "Torus & consciousness", s: "--lapis", why: "A vivid tour of the idea that every part of reality contains the whole." },
-    { t: "The Ancient Secret of the Flower of Life", a: "Drunvalo Melchizedek", c: "Torus & consciousness", s: "--lapis", why: "Sacred geometry, from the seed of life to the field around the body." },
-    { t: "Letters to a Young Poet", a: "Rainer Maria Rilke", c: "Poetry", s: "--sea", why: "Ten letters on solitude, patience and living the questions. Every writer's companion." }
+    { t: "Owning Your Own Shadow", a: "Robert A. Johnson", c: "Jung & depth psychology", s: "--rose", why: "A short, clear book on the dark side of the psyche and how to reclaim what we have disowned." },
+    { t: "Inner Work", a: "Robert A. Johnson", c: "Jung & depth psychology", s: "--rose", why: "A practical guide to working with dreams and active imagination for personal growth." },
+    { t: "Ecstasy: Understanding the Psychology of Joy", a: "Robert A. Johnson", c: "Jung & depth psychology", s: "--rose", why: "The myth of Dionysus as a key to the joy modern life has lost." },
+    { t: "Psychology and Alchemy", a: "C.G. Jung", c: "Jung & depth psychology", s: "--rose", why: "Jung shows that the alchemists were describing the transformation of the soul." },
+    { t: "The Origins and History of Consciousness", a: "Erich Neumann", c: "Jung & depth psychology", s: "--rose", why: "How human consciousness grew out of the unconscious, traced through myth. With a foreword by Jung." },
+    { t: "The Secret of the Golden Flower", a: "Richard Wilhelm & C.G. Jung", c: "Jung & depth psychology", s: "--rose", why: "A Chinese book of life on inner alchemy and meditation, with Jung's commentary." },
+    { t: "Het geheim van de gouden bloem", a: "Richard Wilhelm & C.G. Jung", c: "Jung & depth psychology", s: "--rose", why: "The Dutch edition of the Chinese classic on inner light, with Jung's commentary." },
+    { t: "Love's Executioner", a: "Irvin D. Yalom", c: "Psychology & relationships", s: "--rose", why: "Ten true stories from a psychotherapist's practice, honest and deeply human." },
+    { t: "Games People Play", a: "Eric Berne", c: "Psychology & relationships", s: "--rose", why: "The classic on the hidden games we play in our relationships, and how to stop." },
+    { t: "Polysecure", a: "Jessica Fern", c: "Psychology & relationships", s: "--rose", why: "Attachment, trauma and consensual non-monogamy: how to build secure bonds in any relationship." },
+    { t: "Persuasion Skills Black Book", a: "Rintu Basu", c: "Psychology & relationships", s: "--rose", why: "Practical NLP language patterns for influence and clear communication." },
+    { t: "The World as Will and Representation, Vol. 1", a: "Arthur Schopenhauer", c: "Philosophy", s: "--lapis", why: "Schopenhauer's masterwork: the world as we see it, and the blind will beneath it." },
+    { t: "The Will to Power", a: "Friedrich Nietzsche", c: "Philosophy", s: "--lapis", why: "Nietzsche's notebooks on power, value and the overcoming of the self." },
+    { t: "Plato, schrijver", a: "Gerard Koolschijn", c: "Philosophy", s: "--lapis", why: "Plato's texts on love, uncertainty, justice and rigidity, read and retold in Dutch." },
+    { t: "The Odd One In: On Comedy", a: "Alenka Zupančič", c: "Philosophy", s: "--lapis", why: "A philosopher's look at why comedy reveals more about being human than we think." },
+    { t: "A Voice and Nothing More", a: "Mladen Dolar", c: "Philosophy", s: "--lapis", why: "An exploration of the voice through philosophy and psychoanalysis." },
+    { t: "The Secret Teachings of All Ages", a: "Manly P. Hall", c: "Esoteric & alchemy", s: "--gold", why: "The great encyclopedia of Hermetic, Qabbalistic, alchemical and Rosicrucian symbolism." },
+    { t: "Magic: A Treatise on Natural Occultism", a: "Manly P. Hall", c: "Esoteric & alchemy", s: "--gold", why: "Hall on the difference between true natural magic and its imitations." },
+    { t: "Practical Sigil Magic", a: "Frater U.D.", c: "Esoteric & alchemy", s: "--gold", why: "How to create personal symbols and use them for change." },
+    { t: "A Brief History of Everything", a: "Ken Wilber", c: "Consciousness & sacred geometry", s: "--sea", why: "The most accessible tour of Wilber's integral map of body, mind, soul and spirit." },
+    { t: "Integral Psychology", a: "Ken Wilber", c: "Consciousness & sacred geometry", s: "--sea", why: "Consciousness, spirit, psychology and therapy brought together in one map." },
+    { t: "The Power of Eight", a: "Lynne McTaggart", c: "Consciousness & sacred geometry", s: "--sea", why: "What happens when small groups gather with a shared intention to heal." },
+    { t: "Sacred Geometry and Magical Symbols", a: "Iva Kenaz", c: "Consciousness & sacred geometry", s: "--sea", why: "The meaning of sacred shapes and symbols and how to work with them." },
+    { t: "The Art of War", a: "Sun Tzu", c: "Eastern wisdom", s: "--sea", why: "The ancient Chinese classic on strategy, conflict and knowing yourself." },
+    { t: "Inleiding tot het Zen-Boeddhisme", a: "D.T. Suzuki", c: "Eastern wisdom", s: "--sea", why: "The classic introduction to Zen Buddhism, in Dutch." },
+    { t: "I Tjing", a: "Richard Wilhelm", c: "Eastern wisdom", s: "--sea", why: "The Book of Changes in Richard Wilhelm's renowned translation." },
+    { t: "De I Tjing stap voor stap", a: "Harmen Mesker", c: "Eastern wisdom", s: "--sea", why: "A step-by-step guide to consulting and understanding the I Ching, in Dutch." },
+    { t: "The Book of Mirdad", a: "Mikhail Naimy", c: "Eastern wisdom", s: "--sea", why: "A mystical tale of a monastery and a master who teaches love and freedom." },
+    { t: "Mythos: The Greek Myths Retold", a: "Stephen Fry", c: "Myth & literature", s: "--lapis", why: "The Greek myths retold with warmth and wit." },
+    { t: "Women", a: "Charles Bukowski", c: "Myth & literature", s: "--lapis", why: "Bukowski's raw, funny novel of love, lust and loneliness." },
+    { t: "Tibetan Healing Handbook", a: "Thomas Dunkenberger", c: "Healing", s: "--sea", why: "A practical manual of natural Tibetan medicine for healing body and mind." }
   ];
   var cats = ["All"].concat(BOOKS.map(function (b) { return b.c; }).filter(function (c, i, a) { return a.indexOf(c) === i; }));
   var filtersEl = document.getElementById("filters"), shelfEl = document.getElementById("shelf");
   function amazon(b) {
     var q = encodeURIComponent(b.t + " " + b.a);
-    return "https://www.amazon.com/s?k=" + q + "&i=stripbooks" + (AMAZON_TAG ? "&tag=" + AMAZON_TAG : "");
+    return "https://" + AMAZON_STORE + "/s?k=" + q + "&i=stripbooks" + (AMAZON_TAG ? "&tag=" + AMAZON_TAG : "");
   }
   function renderShelf(cat) {
     shelfEl.innerHTML = "";
