@@ -178,6 +178,19 @@ section.band.alt { background: linear-gradient(180deg, var(--bg-2), #f0fdfb); }
 .flow div { display: grid; gap: .5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 .flow h3 { font-size: var(--s1); color: var(--turq); }
 .flow p { color: var(--muted); font-size: .96rem; }
+.videos-head { display: grid; gap: .5rem; margin-top: clamp(3rem, 6vw, 4.5rem); margin-bottom: 1.5rem; }
+.videos-head h3 { font-size: var(--s2); }
+.videos-head p { color: var(--muted); max-width: var(--measure); }
+.videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 1.2rem; }
+.video { display: grid; text-decoration: none; color: var(--fg); background: var(--surface); border: 1px solid var(--glass-edge); box-shadow: var(--shadow); min-width: 0; transition: transform .2s; }
+.video:hover { transform: translateY(-3px); }
+.video .thumb { aspect-ratio: 16 / 9; max-width: 100%; display: grid; place-items: center; background-size: cover; background-position: center; }
+.video .play { width: 54px; height: 54px; border-radius: 50%; background: rgba(255, 255, 255, .85); display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0, 90, 100, .2); }
+.video .play svg { width: 20px; height: 20px; margin-left: 3px; fill: var(--deep); }
+.video .v-body { padding: 1rem 1.2rem 1.2rem; display: grid; gap: .3rem; }
+.video .v-src { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.video h4 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 1.2rem; line-height: 1.25; }
+.video p { color: var(--muted); font-size: .92rem; }
 
 /* ---------- poetry ---------- */
 .lang-toggle { justify-self: start; display: inline-flex; border: 1px solid var(--line); border-radius: 99px; padding: 3px; gap: 3px; }
@@ -283,6 +296,7 @@ footer nav a:hover { color: var(--turq); }
     <nav class="nav" aria-label="Sections">
       <a href="#profile">Profile</a>
       <a href="#torus-sec">Torus</a>
+      <a href="#torus-videos">Videos</a>
       <a href="#poetry">Poetry</a>
       <a href="#library">Library</a>
       <a href="#jung">Jung</a>
@@ -377,6 +391,11 @@ footer nav a:hover { color: var(--turq); }
         <div><h3>The outflow</h3><p>Expression: the poem written, the decision taken, the step away from the status quo that intuition asks for.</p></div>
         <div><h3>The return</h3><p>Integration. Experience folds back into the centre and becomes wisdom, so the next turn begins from a deeper place.</p></div>
       </div>
+      <div class="videos-head" id="torus-videos">
+        <h3>Torus videos</h3>
+        <p>The films, talks and animations about the torus that I have gathered over the years. <span class="example-tag">Examples</span></p>
+      </div>
+      <div class="videos" id="videos"></div>
     </div>
   </section>
 
@@ -652,6 +671,28 @@ footer nav a:hover { color: var(--turq); }
     document.getElementById("kText").textContent = k.text;
   }
   show("lw");
+
+  /* ---------- torus videos ----------
+     Add a video: { t: title, by: maker, note: why it matters, url: link }.
+     For YouTube, also set yt to the video id (the part after "v=") to show its thumbnail. */
+  var VIDEOS = [
+    { t: "Thrive: What On Earth Will It Take?", by: "Foster Gamble · documentary, 2011", note: "The film that brought the torus to millions, as the fundamental pattern of energy in nature.",
+      url: "https://www.youtube.com/results?search_query=Thrive+What+On+Earth+Will+It+Take+torus" },
+    { t: "The torus and the unified field", by: "Nassim Haramein · talks", note: "Physics and sacred geometry meeting in the shape of a self-feeding field.",
+      url: "https://www.youtube.com/results?search_query=Nassim+Haramein+torus" },
+    { t: "The heart's electromagnetic field", by: "HeartMath Institute", note: "Why the heart's field is so often drawn as a torus, and what coherence feels like.",
+      url: "https://www.youtube.com/results?search_query=HeartMath+heart+electromagnetic+field" }
+  ];
+  var vidEl = document.getElementById("videos");
+  VIDEOS.forEach(function (v, i) {
+    var a = document.createElement("a"); a.className = "video"; a.href = v.url; a.target = "_blank"; a.rel = "noopener";
+    a.innerHTML = '<div class="thumb"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span></div><div class="v-body"><span class="v-src"></span><h4></h4><p></p></div>';
+    var hues = ["#5ee8df, #19d3c5", "#86d3ff, #2f9be8", "#b9f5ee, #0b98a3"];
+    a.querySelector(".thumb").style.backgroundImage = (v.yt ? 'url("https://img.youtube.com/vi/' + v.yt + '/hqdefault.jpg"), ' : "") + "linear-gradient(135deg, " + hues[i % 3] + ")";
+    a.querySelector(".v-src").textContent = v.by; a.querySelector("h4").textContent = v.t; a.querySelector("p").textContent = v.note;
+    a.setAttribute("aria-label", v.t + ", opens video");
+    vidEl.appendChild(a);
+  });
 
   /* ---------- poems (placeholders until Stefan's own poems arrive) ---------- */
   var POEMS = {

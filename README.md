@@ -9,6 +9,7 @@ A single static page (`index.html`), no build step. Hosted with GitHub Pages; `C
 All content lives in `index.html`:
 
 - **Poems:** the `POEMS` list in the script (`en` and `nl`).
+- **Torus videos:** the `VIDEOS` list. Set `yt` to a YouTube video id to show its thumbnail.
 - **Books:** the `BOOKS` list. Set `AMAZON_TAG` to your Amazon Associates tag to earn from links.
 - **Coaching offers and prices:** the `#coaching` section.
 - **Bio:** the `#profile` section.
