@@ -393,7 +393,7 @@ footer nav a:hover { color: var(--turq); }
       </div>
       <div class="videos-head" id="torus-videos">
         <h3>Torus videos</h3>
-        <p>The films, talks and animations about the torus that I have gathered over the years. <span class="example-tag">Examples</span></p>
+        <p>The films, talks and animations about the torus that I have gathered over the years.</p>
       </div>
       <div class="videos" id="videos"></div>
     </div>
@@ -676,12 +676,10 @@ footer nav a:hover { color: var(--turq); }
      Add a video: { t: title, by: maker, note: why it matters, url: link }.
      For YouTube, also set yt to the video id (the part after "v=") to show its thumbnail. */
   var VIDEOS = [
-    { t: "Thrive: What On Earth Will It Take?", by: "Foster Gamble · documentary, 2011", note: "The film that brought the torus to millions, as the fundamental pattern of energy in nature.",
-      url: "https://www.youtube.com/results?search_query=Thrive+What+On+Earth+Will+It+Take+torus" },
-    { t: "The torus and the unified field", by: "Nassim Haramein · talks", note: "Physics and sacred geometry meeting in the shape of a self-feeding field.",
-      url: "https://www.youtube.com/results?search_query=Nassim+Haramein+torus" },
-    { t: "The heart's electromagnetic field", by: "HeartMath Institute", note: "Why the heart's field is so often drawn as a torus, and what coherence feels like.",
-      url: "https://www.youtube.com/results?search_query=HeartMath+heart+electromagnetic+field" }
+    { t: "You are infinite Consciousness: a Torus energy field", by: "Werner Fraanje", note: "Consciousness seen as a torus energy field.",
+      url: "https://www.youtube.com/watch?v=d44oWeIKuuY", yt: "d44oWeIKuuY" },
+    { t: "The 5 Bodies of Consciousness", by: "Quantum University", note: "A talk on the five bodies, or layers, of human consciousness.",
+      url: "https://www.youtube.com/watch?v=Sd0CVItPz-4", yt: "Sd0CVItPz-4" }
   ];
   var vidEl = document.getElementById("videos");
   VIDEOS.forEach(function (v, i) {
