@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Stefan John de Pous</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Stefan John de Pous: poet, coach and explorer of the Gene Keys, Jungian depth psychology, alchemy and the torus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=Jost:wght@300;400;500&family=Marcellus&display=swap">
+<style>
+/* Layout: sunlit tropical shallows with a turning torus at the top, then calm bands
+   that alternate between open water and clear glass panes. One column of reading
+   width, widened to grids only where the content is a set (keys, books, offers). */
+:root {
+  /* sunlit Caribbean shallows: white sand, clear water, a deeper channel for text */
+  --bg: #f6fefd;
+  --bg-2: #e6faf7;
+  --surface: rgba(255, 255, 255, .74);
+  --surface-solid: #ffffff;
+  --fg: #0b3442;
+  --muted: #3d6871;
+  --line: rgba(0, 160, 168, .22);
+  --glass-edge: rgba(255, 255, 255, .95);
+  --sea: #19d3c5;
+  --sea-2: #5ee8df;
+  --turq: #00868c;
+  --deep: #0b98a3;
+  --gold: #a87a12;
+  --sun: #ffd37a;
+  --rose: #ec7c95;
+  --lapis: #2f9be8;
+  --on-turq: #04323a;
+  --glow: rgba(25, 211, 197, .22);
+  --shadow: 0 12px 34px rgba(0, 120, 135, .10), 0 1px 0 rgba(255, 255, 255, .9) inset;
+
+  --f-display: "Marcellus", "Trajan Pro", Georgia, serif;
+  --f-verse: "Cormorant Garamond", "Garamond", Georgia, serif;
+  --f-body: "Jost", "Futura", "Avenir Next", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --s-1: clamp(.8rem, .78rem + .1vw, .85rem);
+  --s0: clamp(1rem, .97rem + .15vw, 1.08rem);
+  --s1: clamp(1.25rem, 1.15rem + .4vw, 1.45rem);
+  --s2: clamp(1.6rem, 1.4rem + .9vw, 2.2rem);
+  --s3: clamp(2.2rem, 1.7rem + 2.2vw, 3.6rem);
+  --s4: clamp(2.8rem, 2rem + 4vw, 5.4rem);
+
+  --measure: 64ch;
+  --wide: 1120px;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-weight: 300; font-size: var(--s0); line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--bg);
+}
+a { color: var(--turq); text-underline-offset: .2em; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--turq); outline-offset: 3px; border-radius: 2px;
+}
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.wrap { max-width: var(--wide); margin-inline: auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.eyebrow {
+  font-family: var(--f-mono); font-size: var(--s-1); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--turq); display: flex; align-items: center; gap: .6rem;
+}
+.lede { font-size: var(--s1); line-height: 1.55; color: var(--fg); max-width: 40ch; }
+.prose { max-width: var(--measure); display: grid; gap: 1.1rem; color: var(--muted); }
+.prose strong { color: var(--fg); font-weight: 500; }
+
+/* ---------- header ---------- */
+.site-head {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9;
+  background: rgba(246, 254, 253, .78);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-head .wrap { display: flex; align-items: center; gap: 1.5rem; padding-block: .7rem; }
+.mark { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--fg); font-family: var(--f-display); font-size: 1.05rem; letter-spacing: .04em; white-space: nowrap; }
+.mark svg { width: 30px; height: 30px; }
+.nav { display: flex; gap: 1.1rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { color: var(--muted); text-decoration: none; white-space: nowrap; padding-block: .3rem; }
+.nav a:hover { color: var(--turq); }
+@media (max-width: 860px) { .nav { display: none; } }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(60% 70% at 78% 45%, rgba(94, 232, 223, .75) 0%, rgba(25, 211, 197, .35) 40%, transparent 75%),
+    radial-gradient(50% 60% at 10% 0%, rgba(47, 155, 232, .14), transparent 70%),
+    linear-gradient(180deg, #f6fefd 0%, #dcfaf6 100%); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: center; gap: 2rem; padding-block: clamp(3rem, 7vw, 6rem); }
+.hero h1 { font-size: var(--s4); letter-spacing: .01em; }
+.hero h1 span { display: block; color: var(--turq); }
+.hero-copy { display: grid; gap: 1.6rem; min-width: 0; }
+.hero-keys { display: flex; flex-wrap: wrap; gap: .5rem; font-family: var(--f-mono); font-size: var(--s-1); }
+.hero-keys span { background: rgba(255,255,255,.6); border: 1px solid var(--glass-edge); border-radius: 99px; padding: .25rem .75rem; color: var(--muted); }
+.hero-keys b { color: var(--turq); font-weight: 500; }
+.torus-box { position: relative; aspect-ratio: 1; max-width: 100%; width: 100%; }
+#torus { width: 100%; height: 100%; display: block; }
+.torus-cap { position: absolute; bottom: 4%; left: 0; right: 0; text-align: center; font-family: var(--f-mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.btns { display: flex; flex-wrap: wrap; gap: .8rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem; font: 500 .88rem/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase;
+  padding: .95rem 1.4rem; border-radius: 2px; text-decoration: none; cursor: pointer; border: 1px solid var(--turq);
+  transition: background .2s, color .2s, box-shadow .2s;
+}
+.btn-solid { background: var(--sea); border-color: var(--sea); color: var(--on-turq); }
+.btn-solid:hover { box-shadow: 0 0 0 6px var(--glow); }
+.btn-ghost { background: rgba(255,255,255,.55); color: var(--turq); border-color: var(--turq); }
+.btn-ghost:hover { background: var(--glow); }
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .torus-box { max-width: 420px; justify-self: center; order: -1; margin-bottom: -2rem; }
+}
+
+/* ---------- sections ---------- */
+section.band { padding-block: clamp(4rem, 9vw, 7.5rem); border-bottom: 1px solid var(--line); }
+section.band.alt { background: linear-gradient(180deg, var(--bg-2), #f0fdfb); }
+.sec-head { display: grid; gap: 1rem; margin-bottom: clamp(2rem, 4vw, 3.2rem); max-width: 46rem; }
+.sec-head h2 { font-size: var(--s3); }
+.sec-head p { color: var(--muted); max-width: var(--measure); }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+@media (max-width: 860px) { .two { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- profile ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.about-text { display: grid; gap: 1.2rem; }
+.about-text h2 { font-size: var(--s3); }
+.about-chart { display: grid; gap: 1rem; max-width: 460px; width: 100%; justify-self: end; }
+@media (max-width: 860px) { .about { grid-template-columns: minmax(0, 1fr); } .about-chart { justify-self: start; } }
+.chart-box { max-width: 100%; }
+#chart { width: 100%; height: auto; display: block; }
+#chart .edge { stroke-width: 2; fill: none; opacity: .6; }
+#chart .node { cursor: pointer; }
+#chart .node .gem { transition: transform .25s; transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 6px 10px rgba(0, 120, 135, .18)); }
+#chart .node:hover .gem, #chart .node.on .gem { transform: scale(1.12); }
+#chart .node.on .gem { stroke: var(--fg); }
+#chart text { font-family: var(--f-mono); fill: var(--fg); pointer-events: none; }
+#chart .num { font-size: 20px; font-weight: 500; fill: var(--on-turq); }
+#chart .lbl { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; fill: var(--muted); }
+.seq-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: var(--s-1); color: var(--muted); margin-top: .8rem; }
+.seq-legend span { display: inline-flex; align-items: center; gap: .45rem; }
+.seq-legend i { width: 10px; height: 10px; transform: rotate(45deg); display: inline-block; }
+.key-card { padding: 1.3rem 1.4rem !important; border: 1px solid var(--glass-edge); background: var(--surface); box-shadow: var(--shadow); backdrop-filter: blur(8px); padding: clamp(1.4rem, 3vw, 2.2rem); display: grid; gap: 1.2rem; position: relative; }
+.key-card .k-sphere { font-family: var(--f-mono); font-size: var(--s-1); letter-spacing: .14em; text-transform: uppercase; color: var(--turq); }
+.key-card h3 { font-size: var(--s1); }
+.key-card .k-num { font-family: var(--f-mono); color: var(--muted); font-size: .9rem; }
+.spectrum { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.spectrum div { border-top: 2px solid var(--line); padding-top: .5rem; display: grid; gap: .1rem; }
+.spectrum small { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.spectrum b { font-family: var(--f-display); font-weight: 400; font-size: 1.15rem; }
+.spectrum .sh { border-color: var(--muted); }
+.spectrum .gi { border-color: var(--sea); }
+.spectrum .si { border-color: var(--gold); }
+.spectrum .si b { color: var(--gold); }
+.key-card .k-text { color: var(--muted); font-size: .98rem; }
+.key-card .k-line { font-family: var(--f-mono); font-size: .78rem; color: var(--muted); }
+.hint { font-size: var(--s-1); color: var(--muted); font-style: italic; }
+
+/* ---------- torus ---------- */
+.flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+@media (max-width: 760px) { .flow { grid-template-columns: minmax(0, 1fr); } }
+.flow div { display: grid; gap: .5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.flow h3 { font-size: var(--s1); color: var(--turq); }
+.flow p { color: var(--muted); font-size: .96rem; }
+
+/* ---------- poetry ---------- */
+.lang-toggle { justify-self: start; display: inline-flex; border: 1px solid var(--line); border-radius: 99px; padding: 3px; gap: 3px; }
+.lang-toggle button { background: none; border: 0; color: var(--muted); font: 500 .8rem/1 var(--f-mono); letter-spacing: .1em; padding: .55rem 1rem; border-radius: 99px; cursor: pointer; }
+.lang-toggle button[aria-pressed="true"] { background: var(--sea); color: var(--on-turq); }
+.poems { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2rem); margin-top: 2rem; }
+@media (max-width: 900px) { .poems { grid-template-columns: minmax(0, 1fr); max-width: 34rem; } }
+.poem { display: grid; gap: 1rem; align-content: start; padding: 1.8rem 0 0; border-top: 2px solid var(--sea); }
+.poem h3 { font-size: 1.45rem; }
+.poem pre { font-family: var(--f-verse); font-style: italic; font-size: 1.28rem; line-height: 1.55; white-space: pre-wrap; margin: 0; color: var(--fg); }
+.poem .meta { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.example-tag { display: inline-block; font-family: var(--f-mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); border: 1px solid currentColor; padding: .1rem .45rem; border-radius: 2px; vertical-align: middle; }
+
+/* ---------- books ---------- */
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.filters button { background: none; border: 1px solid var(--line); color: var(--muted); font: 400 .82rem/1 var(--f-body); letter-spacing: .06em; padding: .6rem .95rem; border-radius: 99px; cursor: pointer; }
+.filters button[aria-pressed="true"] { border-color: var(--turq); color: var(--turq); background: var(--glow); }
+.shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 1.2rem; }
+.book { background: var(--surface); border: 1px solid var(--glass-edge); box-shadow: var(--shadow); display: grid; grid-template-rows: auto 1fr auto; min-width: 0; }
+.spine { height: 7px; }
+.book-body { padding: 1.3rem 1.3rem .6rem; display: grid; gap: .45rem; align-content: start; }
+.book-body .tag { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.book-body h3 { font-size: 1.25rem; }
+.book-body .by { color: var(--muted); font-size: .9rem; }
+.book-body p { font-size: .93rem; color: var(--muted); }
+.book a.buy { margin: .6rem 1.3rem 1.3rem; justify-self: start; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--turq); padding-bottom: .15rem; }
+.book a.buy:hover { color: var(--fg); }
+.affil { margin-top: 1.5rem; font-size: var(--s-1); color: var(--muted); }
+
+/* ---------- jung ---------- */
+.concepts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.concepts div { padding: 1.4rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: .45rem; align-content: start; }
+.concepts h3 { font-size: 1.3rem; }
+.concepts p { color: var(--muted); font-size: .94rem; }
+.concepts .de { font-family: var(--f-verse); font-style: italic; color: var(--turq); font-size: 1.05rem; }
+blockquote.q { margin: 3rem 0 0; max-width: 40rem; font-family: var(--f-verse); font-style: italic; font-size: var(--s2); line-height: 1.3; color: var(--fg); }
+blockquote.q cite { display: block; margin-top: .8rem; font: 400 var(--s-1)/1.4 var(--f-mono); font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- alchemy ---------- */
+.opus { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; counter-reset: stage; }
+@media (max-width: 900px) { .opus { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .opus { grid-template-columns: minmax(0, 1fr); } }
+.stage { display: grid; gap: .6rem; align-content: start; padding: 1.4rem 1.2rem; border: 1px solid var(--glass-edge); background: var(--surface); box-shadow: var(--shadow); }
+.stage .orb { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); }
+.stage .st-n { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.stage h3 { font-size: 1.45rem; }
+.stage .tr { font-family: var(--f-verse); font-style: italic; font-size: 1.1rem; color: var(--turq); }
+.stage p { color: var(--muted); font-size: .93rem; }
+.opus-note { margin-top: 2rem; color: var(--muted); max-width: var(--measure); }
+
+/* ---------- coaching ---------- */
+.offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+@media (max-width: 900px) { .offers { grid-template-columns: minmax(0, 1fr); max-width: 34rem; } }
+.offer { border: 1px solid var(--glass-edge); padding: 1.6rem; display: grid; gap: .8rem; align-content: start; background: var(--surface); box-shadow: var(--shadow); }
+.offer.feature { border-color: var(--sea); box-shadow: 0 0 0 4px var(--glow); }
+.offer .dur { font-family: var(--f-mono); font-size: .78rem; letter-spacing: .1em; color: var(--turq); text-transform: uppercase; }
+.offer h3 { font-size: 1.5rem; }
+.offer p { color: var(--muted); font-size: .95rem; }
+.offer .price { font-family: var(--f-mono); font-size: .85rem; color: var(--fg); }
+.booking { margin-top: 3rem; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+@media (max-width: 860px) { .booking { grid-template-columns: minmax(0, 1fr); } }
+form.panel { display: grid; gap: 1rem; padding: clamp(1.3rem, 3vw, 2rem); border: 1px solid var(--glass-edge); background: var(--surface); box-shadow: var(--shadow); }
+.field { display: grid; gap: .35rem; }
+.field label { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.field input, .field select, .field textarea {
+  font: 400 1rem/1.4 var(--f-body); color: var(--fg); background: var(--surface-solid); border: 1px solid var(--line);
+  padding: .75rem .85rem; border-radius: 2px; width: 100%;
+}
+.field textarea { min-height: 90px; resize: vertical; }
+.row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+@media (max-width: 520px) { .row2 { grid-template-columns: minmax(0, 1fr); } }
+.form-msg { font-size: .92rem; color: var(--turq); min-height: 1.4em; }
+
+/* ---------- newsletter ---------- */
+.letter { border: 1px solid var(--glass-edge); background: var(--surface); box-shadow: var(--shadow); padding: clamp(1.4rem, 3vw, 2.2rem); display: grid; gap: 1.3rem; }
+.letter .issue { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-family: var(--f-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: .9rem; }
+.letter .part { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: .8rem; align-items: start; }
+.letter .part .dot { width: 14px; height: 14px; border-radius: 50%; margin-top: .45rem; box-shadow: 0 0 0 5px var(--glow); }
+.letter .part h4 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 1.2rem; }
+.letter .part p { color: var(--muted); font-size: .94rem; }
+.signup { display: flex; gap: .6rem; flex-wrap: wrap; }
+.signup input { flex: 1 1 220px; min-width: 0; font: 400 1rem/1.4 var(--f-body); color: var(--fg); background: var(--surface-solid); border: 1px solid var(--line); padding: .85rem 1rem; border-radius: 2px; }
+
+/* ---------- footer ---------- */
+footer { padding-block: 3rem 3.5rem; color: var(--muted); font-size: var(--s-1); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; justify-content: space-between; align-items: flex-end; }
+footer .sig { font-family: var(--f-verse); font-style: italic; font-size: 1.4rem; color: var(--fg); }
+footer nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+footer nav a { color: var(--muted); text-decoration: none; }
+footer nav a:hover { color: var(--turq); }
+.tm { flex-basis: 100%; font-size: .74rem; opacity: .8; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Stefan John de Pous, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="14" ry="7" fill="none" stroke="var(--deep)" stroke-width="1.6"/><ellipse cx="16" cy="16" rx="5" ry="2.2" fill="none" stroke="var(--sea)" stroke-width="1.6"/><circle cx="16" cy="16" r="1.6" fill="var(--sun)"/></svg>
+      Stefan John de Pous
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#profile">Profile</a>
+      <a href="#torus-sec">Torus</a>
+      <a href="#poetry">Poetry</a>
+      <a href="#library">Library</a>
+      <a href="#jung">Jung</a>
+      <a href="#alchemy">Alchemy</a>
+      <a href="#coaching">Coaching</a>
+      <a href="#letter">Newsletter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="eyebrow">Poet · Coach · Explorer of the inner sea</div>
+        <h1>Stefan John<span>de Pous</span></h1>
+        <p class="lede">Trust the voice beneath the noise, and clarity follows. Poetry, books, Jungian depth work and the Gene Keys, all turning around one centre.</p>
+        <div class="hero-keys" aria-label="Core Gene Keys">
+          <span><b>57</b> Intuition</span>
+          <span><b>51</b> Initiative</span>
+          <span><b>62</b> Precision</span>
+          <span><b>61</b> Inspiration</span>
+        </div>
+        <div class="btns">
+          <a class="btn btn-solid" href="#coaching">Book a session</a>
+          <a class="btn btn-ghost" href="#poetry">Read the poems</a>
+        </div>
+      </div>
+      <div class="torus-box">
+        <canvas id="torus" aria-label="A slowly turning turquoise torus" role="img"></canvas>
+        <div class="torus-cap">Torus · the shape of a self-renewing field</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / PROFILE -->
+  <section class="band" id="profile">
+    <div class="wrap">
+      <div class="about">
+        <div class="about-text">
+          <div class="eyebrow">About me</div>
+          <h2>I follow the voice beneath the noise</h2>
+          <div class="prose">
+            <p>I'm Stefan, a poet and coach from the Netherlands. For most of my life I have been drawn to what lies under the surface: dreams, symbols, old alchemical texts, and the quiet knowing that arrives before the mind can explain it.</p>
+            <p>When I first read my Gene Keys profile, one line stood out: <strong>trust your intuition and everything becomes clear.</strong> My life's work sits in Gene Key 57, the Gift of Intuition. My purpose sits in Gene Key 61, the Gift of Inspiration: to move beyond every definition of myself and help others do the same.</p>
+            <p>So this site is that, in practice. Poems that came from listening. Books that changed me. And sessions where I help you hear your own inner voice clearly enough to follow it.</p>
+          </div>
+          <p class="hint">Bio draft: Stefan, replace this with your own story.</p>
+        </div>
+        <div class="about-chart">
+          <div class="chart-box">
+            <svg id="chart" viewBox="130 120 760 760" role="group" aria-label="Hologenetic profile chart"></svg>
+            <div class="seq-legend">
+              <span><i style="background:var(--sea)"></i>Activation · purpose</span>
+              <span><i style="background:var(--rose)"></i>Venus · the heart</span>
+              <span><i style="background:var(--lapis)"></i>Pearl · prosperity</span>
+            </div>
+          </div>
+          <article class="key-card" id="keyCard" aria-live="polite">
+            <div class="k-sphere" id="kSphere">Life's Work</div>
+            <h3 id="kTitle">Gene Key 57</h3>
+            <div class="k-num" id="kNum">57.6 · Line 6, the Teacher</div>
+            <div class="spectrum">
+              <div class="sh"><small>Shadow</small><b id="kSh">Unease</b></div>
+              <div class="gi"><small>Gift</small><b id="kGi">Intuition</b></div>
+              <div class="si"><small>Siddhi</small><b id="kSi">Clarity</b></div>
+            </div>
+            <p class="k-text" id="kText"></p>
+          </article>
+          <p class="hint">My Hologenetic Profile. Tap a sphere to read its Shadow, Gift and Siddhi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TORUS -->
+  <section class="band alt" id="torus-sec">
+    <div class="wrap">
+      <div class="two">
+        <div class="sec-head" style="margin-bottom:0">
+          <div class="eyebrow">Sacred geometry</div>
+          <h2>The torus, the shape consciousness takes</h2>
+        </div>
+        <div class="prose">
+          <p>A torus is a field that feeds itself. Energy rises through a central axis, flows out over the surface and returns through the same centre, endlessly. You find the pattern in an apple, a smoke ring, the magnetic field of the Earth, and the way the heart's field is often pictured.</p>
+          <p>I use it as a map for inner life. <strong>What we send out returns to us through the centre.</strong> A Shadow avoided keeps circling. A Gift lived keeps renewing itself, and in that flow the self becomes both still point and movement.</p>
+        </div>
+      </div>
+      <div class="flow">
+        <div><h3>The still point</h3><p>The empty centre where everything passes through. In practice: silence, breath, the moment before an intuition speaks.</p></div>
+        <div><h3>The outflow</h3><p>Expression: the poem written, the decision taken, the step away from the status quo that intuition asks for.</p></div>
+        <div><h3>The return</h3><p>Integration. Experience folds back into the centre and becomes wisdom, so the next turn begins from a deeper place.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POETRY -->
+  <section class="band" id="poetry">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Poëzie · Poetry</div>
+        <h2>Poems in two tongues</h2>
+        <p>Written in Dutch and in English, sometimes in both. Choose the language to read.</p>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" id="langEn" aria-pressed="true">English</button>
+          <button type="button" id="langNl" aria-pressed="false">Nederlands</button>
+        </div>
+      </div>
+      <div class="poems" id="poems"></div>
+    </div>
+  </section>
+
+  <!-- LIBRARY -->
+  <section class="band alt" id="library">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">The library</div>
+        <h2>Books that turned the wheel</h2>
+        <p>Every book I have read and would put in your hands, with a note on why. Each links to Amazon. <span class="example-tag">Starter shelf</span></p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter books"></div>
+      <div class="shelf" id="shelf"></div>
+      <p class="affil">As an Amazon Associate I may earn from qualifying purchases, at no extra cost to you.</p>
+    </div>
+  </section>
+
+  <!-- JUNG -->
+  <section class="band" id="jung">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Depth psychology</div>
+        <h2>Carl Jung and the descent inward</h2>
+        <p>Jung saw the psyche as a living landscape with depths we rarely visit. His map pairs naturally with the Gene Keys: the Shadow he describes is the same raw material the Gene Keys ask us to transform.</p>
+      </div>
+      <div class="concepts">
+        <div><h3>Persona</h3><span class="de">het masker</span><p>The face we show the world. Useful, and never the whole of us. A brand built honestly lets the persona carry the soul instead of hiding it.</p></div>
+        <div><h3>Shadow</h3><span class="de">de schaduw</span><p>Everything we refuse to see in ourselves. Met with compassion, it gives back the energy it has been holding.</p></div>
+        <div><h3>Anima &amp; Animus</h3><span class="de">de innerlijke ander</span><p>The contrasexual image within, guide to the unconscious and source of our deepest projections in love.</p></div>
+        <div><h3>Archetypes</h3><span class="de">oerbeelden</span><p>Patterns of the collective unconscious: the Hero, the Mother, the Trickster, the Wise Old Man, alive in myths and in our dreams.</p></div>
+        <div><h3>Individuation</h3><span class="de">heelwording</span><p>The lifelong process of becoming who you are. Not perfection, but wholeness, with the Self as centre.</p></div>
+        <div><h3>Active imagination</h3><span class="de">actieve verbeelding</span><p>A dialogue with inner images while awake. Many of my poems begin here.</p></div>
+      </div>
+      <blockquote class="q">“Who looks outside, dreams; who looks inside, awakes.”<cite>C.G. Jung, letter to Fanny Bowditch, 1916</cite></blockquote>
+    </div>
+  </section>
+
+  <!-- ALCHEMY -->
+  <section class="band alt" id="alchemy">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">The Great Work</div>
+        <h2>Alchemy, the art of inner gold</h2>
+        <p>The old alchemists worked on lead and mercury, yet the text kept speaking of the soul. Jung recognised their stages as the stages of individuation. The Magnum Opus has four colours.</p>
+      </div>
+      <div class="opus">
+        <div class="stage"><div class="orb" style="background:radial-gradient(circle at 35% 30%, #4a5552, #0b0f0f 70%)"></div><span class="st-n">Stage one</span><h3>Nigredo</h3><span class="tr">the blackening</span><p>Dissolution and the dark night. Old forms break down. In Gene Keys terms, meeting the Shadow fully.</p></div>
+        <div class="stage"><div class="orb" style="background:radial-gradient(circle at 35% 30%, #ffffff, #b9d6d2 75%)"></div><span class="st-n">Stage two</span><h3>Albedo</h3><span class="tr">the whitening</span><p>Washing and clarity. The soul is purified and reflects light like the moon. The Gift begins to shine.</p></div>
+        <div class="stage"><div class="orb" style="background:radial-gradient(circle at 35% 30%, #fff2b0, #d8a52c 75%)"></div><span class="st-n">Stage three</span><h3>Citrinitas</h3><span class="tr">the yellowing</span><p>Dawn of the inner sun. Reflected light becomes one's own light, and wisdom becomes lived.</p></div>
+        <div class="stage"><div class="orb" style="background:radial-gradient(circle at 35% 30%, #ff9a8a, #8e1b22 75%)"></div><span class="st-n">Stage four</span><h3>Rubedo</h3><span class="tr">the reddening</span><p>The union of opposites, the philosopher's stone. Spirit lives in matter. Here the Siddhi is remembered.</p></div>
+      </div>
+      <p class="opus-note"><em>Solve et coagula</em>: dissolve and bind again. The same rhythm as the torus, outward and back to the centre.</p>
+    </div>
+  </section>
+
+  <!-- COACHING -->
+  <section class="band" id="coaching">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Coaching</div>
+        <h2>Walk your own Golden Path</h2>
+        <p>One-to-one sessions in Dutch or English, online or in person. We work with your Gene Keys profile, your dreams and the images that keep returning, until your own inner voice becomes clear enough to follow.</p>
+      </div>
+      <div class="offers">
+        <div class="offer"><span class="dur">30 minutes · online</span><h3>Discovery call</h3><p>A free first conversation to feel whether we are a fit and what you are longing for.</p><span class="price">Free</span></div>
+        <div class="offer feature"><span class="dur">90 minutes</span><h3>Golden Path reading</h3><p>A deep walk through your Hologenetic Profile: your Life's Work, Evolution, Radiance and Purpose, and the Shadow that guards each one.</p><span class="price">Price to be set</span></div>
+        <div class="offer"><span class="dur">6 sessions · 3 months</span><h3>Depth journey</h3><p>Shadow work with Jungian dream work, active imagination and the Venus Sequence. For people ready to change a pattern, not only understand it.</p><span class="price">Price to be set</span></div>
+      </div>
+      <div class="booking">
+        <div class="prose">
+          <h3 style="font-size:var(--s2);color:var(--fg)">Book an appointment</h3>
+          <p>Choose a session and a preferred moment. You will receive a confirmation with a link or the address.</p>
+          <p class="hint">Preview: this form will connect to a live booking calendar (for example Calendly or Cal.com) once Stefan picks one.</p>
+        </div>
+        <form class="panel" id="bookForm" novalidate>
+          <div class="row2">
+            <div class="field"><label for="bName">Name</label><input id="bName" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="bEmail">Email</label><input id="bEmail" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="bType">Session</label>
+              <select id="bType" name="type"><option>Discovery call</option><option>Golden Path reading</option><option>Depth journey</option></select></div>
+            <div class="field"><label for="bDate">Preferred date</label><input id="bDate" name="date" type="date"></div>
+          </div>
+          <div class="field"><label for="bNote">What brings you here? (optional)</label><textarea id="bNote" name="note"></textarea></div>
+          <button class="btn btn-solid" type="submit" style="justify-self:start">Request appointment</button>
+          <p class="form-msg" id="bookMsg" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="band alt" id="letter">
+    <div class="wrap">
+      <div class="two">
+        <div class="sec-head" style="margin-bottom:0">
+          <div class="eyebrow">Monthly · Maandelijks</div>
+          <h2>The Torus Letter</h2>
+          <p>Once a month, with the new moon of your inbox: one poem, one book and why it is worth your time. Nothing else.</p>
+          <form class="signup" id="signForm" novalidate>
+            <label for="sEmail" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+            <input id="sEmail" type="email" placeholder="your@email.com" autocomplete="email" required>
+            <button class="btn btn-solid" type="submit">Subscribe</button>
+          </form>
+          <p class="form-msg" id="signMsg" role="status"></p>
+        </div>
+        <article class="letter" aria-label="What an issue looks like">
+          <div class="issue"><span>Issue 01</span><span>Example layout</span></div>
+          <div class="part"><span class="dot" style="background:var(--sea)"></span><div><h4>The poem</h4><p>A new or unpublished poem, in Dutch or English, with a line about where it came from.</p></div></div>
+          <div class="part"><span class="dot" style="background:var(--lapis)"></span><div><h4>The book</h4><p>A short summary of one book from the library, in my own words.</p></div></div>
+          <div class="part"><span class="dot" style="background:var(--sun)"></span><div><h4>Why you should read it</h4><p>What it opened in me, and who it is for. Plus the link if you want your own copy.</p></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="sig">Stefan John de Pous</div>
+      <div>stefanjohndepous.com</div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#poetry">Poetry</a><a href="#library">Library</a><a href="#coaching">Coaching</a><a href="#letter">Newsletter</a>
+    </nav>
+    <p class="tm">Gene Keys® is a registered trademark of Gene Keys Publishing. This site is a personal reflection on my own profile and is not affiliated with Gene Keys Publishing.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function css(name) { return getComputedStyle(root).getPropertyValue(name).trim(); }
+
+  /* ---------- torus ---------- */
+  var cv = document.getElementById("torus"), ctx = cv.getContext("2d");
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var R = 1, r = 0.46, U = 46, V = 22, t = 0.6;
+  function size() {
+    var d = Math.min(window.devicePixelRatio || 1, 2), b = cv.getBoundingClientRect();
+    cv.width = b.width * d; cv.height = b.height * d;
+  }
+  function draw() {
+    var w = cv.width, h = cv.height, s = Math.min(w, h) * 0.3, cx = w / 2, cy = h / 2;
+    var col = css("--deep"), gold = css("--sun");
+    ctx.clearRect(0, 0, w, h);
+    var tilt = 1.05, ct = Math.cos(tilt), st = Math.sin(tilt), cr = Math.cos(t), sr = Math.sin(t);
+    function P(u, v) {
+      var x = (R + r * Math.cos(v)) * Math.cos(u), y = (R + r * Math.cos(v)) * Math.sin(u), z = r * Math.sin(v);
+      var x1 = x * cr - y * sr, y1 = x * sr + y * cr;
+      var y2 = y1 * ct - z * st, z2 = y1 * st + z * ct;
+      return [cx + x1 * s, cy + y2 * s, z2];
+    }
+    ctx.lineWidth = Math.max(1, w / 700);
+    ctx.strokeStyle = col;
+    var i, j, a, b, u, v;
+    for (i = 0; i < U; i++) {                 /* meridians: the flow through the centre */
+      u = i / U * Math.PI * 2;
+      for (j = 0; j < 48; j++) {
+        a = P(u, j / 48 * Math.PI * 2); b = P(u, (j + 1) / 48 * Math.PI * 2);
+        ctx.globalAlpha = 0.18 + 0.6 * ((a[2] + 1.5) / 3);
+        ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+      }
+    }
+    for (j = 0; j < V; j++) {                 /* parallels */
+      v = j / V * Math.PI * 2;
+      for (i = 0; i < 72; i++) {
+        a = P(i / 72 * Math.PI * 2, v); b = P((i + 1) / 72 * Math.PI * 2, v);
+        ctx.globalAlpha = 0.06 + 0.25 * ((a[2] + 1.5) / 3);
+        ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+      }
+    }
+    /* the axis and the still point */
+    var top = [cx, cy - s * 1.15 * st], bot = [cx, cy + s * 1.15 * st];
+    ctx.globalAlpha = 0.5; ctx.strokeStyle = gold; ctx.setLineDash([3 * ctx.lineWidth, 5 * ctx.lineWidth]);
+    ctx.beginPath(); ctx.moveTo(top[0], top[1]); ctx.lineTo(bot[0], bot[1]); ctx.stroke(); ctx.setLineDash([]);
+    var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, s * 0.22);
+    g.addColorStop(0, gold); g.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.globalAlpha = 0.9; ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, s * 0.22, 0, Math.PI * 2); ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+  function loop() { t += 0.0035; draw(); if (!reduce && !document.hidden) requestAnimationFrame(loop); }
+  size(); draw();
+  window.addEventListener("resize", function () { size(); draw(); });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden && !reduce) requestAnimationFrame(loop); });
+  if (!reduce) requestAnimationFrame(loop);
+
+  /* ---------- profile chart ---------- */
+  var KEYS = {
+    lw:  { sphere: "Life's Work", seq: "a", key: "57.6", line: "Line 6 · Teacher", sh: "Unease", gi: "Intuition", si: "Clarity", x: 502, y: 195,
+           text: "What I'm here to do. If I trust my intuition, everything becomes clear: the right people, the right work, the right timing. It will always lead me away from the status quo." },
+    ev:  { sphere: "Evolution", seq: "a", key: "51.6", line: "Line 6 · Education & Surrender", sh: "Agitation", gi: "Initiative", si: "Awakening", x: 817, y: 511,
+           text: "What I'm here to learn. A trailblazer rather than a follower. When I am excited and a little afraid at the same time, I know I am on track." },
+    ra:  { sphere: "Radiance", seq: "a", key: "62.2", line: "Line 2 · Marriage", sh: "Intellect", gi: "Precision", si: "Impeccability", x: 187, y: 511,
+           text: "What keeps me healthy. The body needs room to roam more than the mind needs to study. A born communicator: what I learn is for the sake of others." },
+    pu:  { sphere: "Purpose", seq: "a", key: "61.2", line: "Line 2 · Posture (fluids)", sh: "Psychosis", gi: "Inspiration", si: "Sanctity", x: 502, y: 825,
+           text: "What deeply fulfils me. To move beyond every definition of myself, and to be a light for those weighed down by what life is supposed to be." },
+    at:  { sphere: "Attraction", seq: "v", key: "3.2", line: "Line 2 · Lust/Passion", sh: "Chaos", gi: "Innovation", si: "Innocence", x: 502, y: 668,
+           text: "The Venus Sequence opens here: the kind of relationships and challenges life draws towards me." },
+    iq:  { sphere: "IQ", seq: "v", key: "48.6", line: "Line 6 · The Objective mind", sh: "Inadequacy", gi: "Resourcefulness", si: "Wisdom", x: 365, y: 590,
+           text: "The mental patterns formed in childhood, and the depth of resourcefulness beneath them." },
+    eq:  { sphere: "EQ", seq: "v", key: "5.6", line: "Line 6 · Reverence/Alienation", sh: "Impatience", gi: "Patience", si: "Timelessness", x: 638, y: 590,
+           text: "The emotional patterns of adolescence, where patience slowly turns into a feeling for timelessness." },
+    sq:  { sphere: "SQ", seq: "v", key: "12.1", line: "Line 1 · Certainty (rhythm and routine)", sh: "Vanity", gi: "Discrimination", si: "Purity", x: 502, y: 511,
+           text: "Spiritual intelligence, the opening of the heart. The highest expression of my heart is Purity." },
+    co:  { sphere: "Core", seq: "v", key: "57.5", line: "Line 5 · Guilt/Forgiveness", sh: "Unease", gi: "Intuition", si: "Clarity", x: 365, y: 432,
+           text: "The core wound in relationships. Transforming Unease into Intuition is my greatest relational challenge." },
+    cu:  { sphere: "Culture", seq: "p", key: "50.5", line: "Line 5 · Society", sh: "Corruption", gi: "Equilibrium", si: "Harmony", x: 638, y: 432,
+           text: "The groups and culture I thrive in. I do best in a position of leadership or influence." },
+    pe:  { sphere: "Pearl", seq: "p", key: "1.1", line: "Line 1 · Simplicity", sh: "Entropy", gi: "Freshness", si: "Beauty", x: 502, y: 352,
+           text: "The secret of prosperity. I unlock it through the Gift of Freshness and keep it simple." }
+  };
+  var EDGES = [
+    ["lw","co","p"],["lw","pe","p"],["lw","cu","p"],["pe","co","p"],["pe","cu","p"],["co","cu","p"],
+    ["lw","ev","a"],["ra","ev","a"],["ra","pu","a"],
+    ["co","sq","v"],["sq","eq","v"],["iq","eq","v"],["iq","at","v"],["at","pu","v"]
+  ];
+  var SEQ = { a: "--sea", v: "--rose", p: "--lapis" };
+  var NS = "http://www.w3.org/2000/svg", svg = document.getElementById("chart");
+  function el(n, at) { var e = document.createElementNS(NS, n); for (var k in at) e.setAttribute(k, at[k]); return e; }
+  EDGES.forEach(function (e) {
+    var a = KEYS[e[0]], b = KEYS[e[1]];
+    svg.appendChild(el("line", { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: "edge", style: "stroke:var(" + SEQ[e[2]] + ")" }));
+  });
+  var defs = el("defs", {});
+  ["a", "v", "p"].forEach(function (q) {
+    var g = el("radialGradient", { id: "orb-" + q, cx: "35%", cy: "30%", r: "75%" });
+    g.appendChild(el("stop", { offset: "0%", "stop-color": "#ffffff", "stop-opacity": ".95" }));
+    g.appendChild(el("stop", { offset: "45%", style: "stop-color:var(" + SEQ[q] + ")" }));
+    g.appendChild(el("stop", { offset: "100%", style: "stop-color:var(" + SEQ[q] + ")", "stop-opacity": ".75" }));
+    defs.appendChild(g);
+  });
+  svg.insertBefore(defs, svg.firstChild);
+  var nodes = {};
+  Object.keys(KEYS).forEach(function (id) {
+    var k = KEYS[id];
+    var g = el("g", { class: "node", tabindex: "0", role: "button", "aria-label": k.sphere + ", Gene Key " + k.key });
+    g.appendChild(el("circle", { cx: k.x, cy: k.y, r: 38, class: "gem", fill: "url(#orb-" + k.seq + ")", stroke: "#ffffff", "stroke-width": 2 }));
+    var n = el("text", { x: k.x, y: k.y + 7, "text-anchor": "middle", class: "num" }); n.textContent = k.key;
+    var l = el("text", { x: k.x, y: k.y - 48, "text-anchor": "middle", class: "lbl" }); l.textContent = k.sphere;
+    g.appendChild(n); g.appendChild(l);
+    g.addEventListener("click", function () { show(id); });
+    g.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); show(id); } });
+    svg.appendChild(g); nodes[id] = g;
+  });
+  function show(id) {
+    var k = KEYS[id];
+    Object.keys(nodes).forEach(function (n) { nodes[n].classList.toggle("on", n === id); });
+    document.getElementById("kSphere").textContent = k.sphere;
+    document.getElementById("kTitle").textContent = "Gene Key " + k.key.split(".")[0];
+    document.getElementById("kNum").textContent = k.key + " · " + k.line;
+    document.getElementById("kSh").textContent = k.sh;
+    document.getElementById("kGi").textContent = k.gi;
+    document.getElementById("kSi").textContent = k.si;
+    document.getElementById("kText").textContent = k.text;
+  }
+  show("lw");
+
+  /* ---------- poems (placeholders until Stefan's own poems arrive) ---------- */
+  var POEMS = {
+    en: [
+      { t: "Still Point", m: "Example · replace with your poem", v: "Between the breath that leaves\nand the breath that comes,\na door no wider than a heartbeat.\nI stand in it, and listen." },
+      { t: "Turquoise", m: "Example · replace with your poem", v: "The stone holds the colour\nof water remembering sky.\nI carry it in my pocket\nthe way I carry your name." },
+      { t: "Return", m: "Example · replace with your poem", v: "Everything I sent away\ncame back through the centre,\nquieter, and more my own." }
+    ],
+    nl: [
+      { t: "Stilpunt", m: "Voorbeeld · vervang door je gedicht", v: "Tussen de adem die gaat\nen de adem die komt,\neen deur zo smal als een hartslag.\nIk sta erin, en luister." },
+      { t: "Turkoois", m: "Voorbeeld · vervang door je gedicht", v: "De steen draagt de kleur\nvan water dat zich de hemel herinnert.\nIk draag hem in mijn zak\nzoals ik jouw naam draag." },
+      { t: "Terugkeer", m: "Voorbeeld · vervang door je gedicht", v: "Alles wat ik wegzond\nkwam terug door het midden,\nstiller, en meer van mij." }
+    ]
+  };
+  var poemsEl = document.getElementById("poems"), bEn = document.getElementById("langEn"), bNl = document.getElementById("langNl");
+  function renderPoems(lang) {
+    poemsEl.innerHTML = "";
+    poemsEl.lang = lang;
+    POEMS[lang].forEach(function (p) {
+      var a = document.createElement("article"); a.className = "poem";
+      a.innerHTML = '<span class="meta"></span><h3></h3><pre></pre>';
+      a.querySelector(".meta").textContent = p.m; a.querySelector("h3").textContent = p.t; a.querySelector("pre").textContent = p.v;
+      poemsEl.appendChild(a);
+    });
+    bEn.setAttribute("aria-pressed", lang === "en"); bNl.setAttribute("aria-pressed", lang === "nl");
+  }
+  bEn.onclick = function () { renderPoems("en"); };
+  bNl.onclick = function () { renderPoems("nl"); };
+  renderPoems("en");
+
+  /* ---------- library ---------- */
+  var AMAZON_TAG = ""; /* add the Amazon Associates tag here, e.g. "stefanjohn-21" */
+  var BOOKS = [
+    { t: "The Gene Keys", a: "Richard Rudd", c: "Gene Keys", s: "--sea", why: "The source text: 64 Shadows, Gifts and Siddhis. A book to live with for years, not to finish." },
+    { t: "Man and His Symbols", a: "C.G. Jung", c: "Jung", s: "--rose", why: "Jung's most readable book, written for everyone. The best first door into dreams and archetypes." },
+    { t: "Memories, Dreams, Reflections", a: "C.G. Jung", c: "Jung", s: "--rose", why: "Jung's inner autobiography. Shows how a life can be lived from the inside out." },
+    { t: "Owning Your Own Shadow", a: "Robert A. Johnson", c: "Jung", s: "--rose", why: "A small book about the Shadow that you can read in one evening and keep using for life." },
+    { t: "Psychology and Alchemy", a: "C.G. Jung", c: "Alchemy", s: "--gold", why: "Where Jung shows that the alchemists were describing the soul's transformation." },
+    { t: "The Kybalion", a: "Three Initiates", c: "Alchemy", s: "--gold", why: "The seven Hermetic principles in plain language. As above, so below." },
+    { t: "The Holographic Universe", a: "Michael Talbot", c: "Torus & consciousness", s: "--lapis", why: "A vivid tour of the idea that every part of reality contains the whole." },
+    { t: "The Ancient Secret of the Flower of Life", a: "Drunvalo Melchizedek", c: "Torus & consciousness", s: "--lapis", why: "Sacred geometry, from the seed of life to the field around the body." },
+    { t: "Letters to a Young Poet", a: "Rainer Maria Rilke", c: "Poetry", s: "--sea", why: "Ten letters on solitude, patience and living the questions. Every writer's companion." }
+  ];
+  var cats = ["All"].concat(BOOKS.map(function (b) { return b.c; }).filter(function (c, i, a) { return a.indexOf(c) === i; }));
+  var filtersEl = document.getElementById("filters"), shelfEl = document.getElementById("shelf");
+  function amazon(b) {
+    var q = encodeURIComponent(b.t + " " + b.a);
+    return "https://www.amazon.com/s?k=" + q + "&i=stripbooks" + (AMAZON_TAG ? "&tag=" + AMAZON_TAG : "");
+  }
+  function renderShelf(cat) {
+    shelfEl.innerHTML = "";
+    BOOKS.filter(function (b) { return cat === "All" || b.c === cat; }).forEach(function (b) {
+      var a = document.createElement("article"); a.className = "book";
+      a.innerHTML = '<div class="spine"></div><div class="book-body"><span class="tag"></span><h3></h3><span class="by"></span><p></p></div><a class="buy" target="_blank" rel="noopener sponsored">View on Amazon</a>';
+      a.querySelector(".spine").style.background = "var(" + b.s + ")";
+      a.querySelector(".tag").textContent = b.c; a.querySelector("h3").textContent = b.t;
+      a.querySelector(".by").textContent = b.a; a.querySelector("p").textContent = b.why;
+      a.querySelector(".buy").href = amazon(b);
+      shelfEl.appendChild(a);
+    });
+    Array.prototype.forEach.call(filtersEl.children, function (btn) { btn.setAttribute("aria-pressed", btn.textContent === cat); });
+  }
+  cats.forEach(function (c) {
+    var btn = document.createElement("button"); btn.type = "button"; btn.textContent = c;
+    btn.onclick = function () { renderShelf(c); }; filtersEl.appendChild(btn);
+  });
+  renderShelf("All");
+
+  /* ---------- forms (preview only, no backend yet) ---------- */
+  function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  document.getElementById("bookForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var msg = document.getElementById("bookMsg");
+    if (!document.getElementById("bName").value.trim()) { msg.textContent = "Please add your name."; return; }
+    if (!validEmail(document.getElementById("bEmail").value)) { msg.textContent = "Please enter a valid email address, like name@example.com."; return; }
+    msg.textContent = "Thank you. In this preview nothing is sent yet: bookings go live once the calendar is connected.";
+  });
+  document.getElementById("signForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var msg = document.getElementById("signMsg");
+    if (!validEmail(document.getElementById("sEmail").value)) { msg.textContent = "Please enter a valid email address, like name@example.com."; return; }
+    msg.textContent = "Thank you. In this preview nothing is stored yet: sign-ups go live once the newsletter tool is connected.";
+  });
+})();
+</script>
+
+</body>
+</html>
