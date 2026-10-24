@@ -218,6 +218,7 @@ section.band.alt { background: linear-gradient(180deg, var(--bg-2), #f0fdfb); }
 .book-body p { font-size: .93rem; color: var(--muted); }
 .book a.buy { margin: .6rem 1.3rem 1.3rem; justify-self: start; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--turq); padding-bottom: .15rem; }
 .book a.buy:hover { color: var(--fg); }
+.more-books { margin-top: 1.5rem; }
 .affil { margin-top: 1.5rem; font-size: var(--s-1); color: var(--muted); }
 
 /* ---------- jung ---------- */
@@ -425,6 +426,7 @@ footer nav a:hover { color: var(--turq); }
       </div>
       <div class="filters" id="filters" role="group" aria-label="Filter books"></div>
       <div class="shelf" id="shelf"></div>
+      <button class="btn btn-ghost more-books" type="button" id="moreBooks" hidden>Show all books</button>
       <p class="affil">As an Amazon Associate I may earn from qualifying purchases, at no extra cost to you.</p>
     </div>
   </section>
@@ -750,24 +752,65 @@ footer nav a:hover { color: var(--turq); }
     { t: "Integral Psychology", a: "Ken Wilber", c: "Consciousness & sacred geometry", s: "--sea", why: "Consciousness, spirit, psychology and therapy brought together in one map." },
     { t: "The Power of Eight", a: "Lynne McTaggart", c: "Consciousness & sacred geometry", s: "--sea", why: "What happens when small groups gather with a shared intention to heal." },
     { t: "Sacred Geometry and Magical Symbols", a: "Iva Kenaz", c: "Consciousness & sacred geometry", s: "--sea", why: "The meaning of sacred shapes and symbols and how to work with them." },
-    { t: "The Art of War", a: "Sun Tzu", c: "Eastern wisdom", s: "--sea", why: "The ancient Chinese classic on strategy, conflict and knowing yourself." },
-    { t: "Inleiding tot het Zen-Boeddhisme", a: "D.T. Suzuki", c: "Eastern wisdom", s: "--sea", why: "The classic introduction to Zen Buddhism, in Dutch." },
-    { t: "I Tjing", a: "Richard Wilhelm", c: "Eastern wisdom", s: "--sea", why: "The Book of Changes in Richard Wilhelm's renowned translation." },
-    { t: "De I Tjing stap voor stap", a: "Harmen Mesker", c: "Eastern wisdom", s: "--sea", why: "A step-by-step guide to consulting and understanding the I Ching, in Dutch." },
-    { t: "The Book of Mirdad", a: "Mikhail Naimy", c: "Eastern wisdom", s: "--sea", why: "A mystical tale of a monastery and a master who teaches love and freedom." },
+    { t: "The Art of War", a: "Sun Tzu", c: "Eastern & mystical wisdom", s: "--sea", why: "The ancient Chinese classic on strategy, conflict and knowing yourself." },
+    { t: "Inleiding tot het Zen-Boeddhisme", a: "D.T. Suzuki", c: "Eastern & mystical wisdom", s: "--sea", why: "The classic introduction to Zen Buddhism, in Dutch." },
+    { t: "I Tjing: Het boek der veranderingen", a: "Richard Wilhelm", c: "Eastern & mystical wisdom", s: "--sea", why: "The Book of Changes in Richard Wilhelm's renowned translation, in Dutch, with a foreword by C.G. Jung." },
+    { t: "De I Tjing stap voor stap", a: "Harmen Mesker", c: "Eastern & mystical wisdom", s: "--sea", why: "A step-by-step guide to consulting and understanding the I Ching, in Dutch." },
+    { t: "The Book of Mirdad", a: "Mikhail Naimy", c: "Eastern & mystical wisdom", s: "--sea", why: "A mystical tale of a monastery and a master who teaches love and freedom." },
     { t: "Mythos: The Greek Myths Retold", a: "Stephen Fry", c: "Myth & literature", s: "--lapis", why: "The Greek myths retold with warmth and wit." },
     { t: "Women", a: "Charles Bukowski", c: "Myth & literature", s: "--lapis", why: "Bukowski's raw, funny novel of love, lust and loneliness." },
-    { t: "Tibetan Healing Handbook", a: "Thomas Dunkenberger", c: "Healing", s: "--sea", why: "A practical manual of natural Tibetan medicine for healing body and mind." }
+    { t: "Tibetan Healing Handbook", a: "Thomas Dunkenberger", c: "Healing", s: "--sea", why: "A practical manual of natural Tibetan medicine for healing body and mind." },
+    { t: "Mysterium Coniunctionis", a: "C.G. Jung", c: "Jung & depth psychology", s: "--rose", why: "Jung's last great work: the alchemical union of opposites as the goal of individuation." },
+    { t: "Archetypen", a: "C.G. Jung", c: "Jung & depth psychology", s: "--rose", why: "Jung's essays on the archetypes and the collective unconscious, in Dutch." },
+    { t: "Clarity & Connection", a: "Yung Pueblo", c: "Psychology & relationships", s: "--rose", why: "Short reflections on healing, self-awareness and loving relationships." },
+    { t: "The Way Forward", a: "Yung Pueblo", c: "Psychology & relationships", s: "--rose", why: "Gentle reflections on inner growth and moving forward with an open heart." },
+    { t: "The 48 Laws of Power", a: "Robert Greene", c: "Psychology & relationships", s: "--rose", why: "A study of power through history, useful for seeing the games people play." },
+    { t: "The World as Will and Representation, Vol. 2", a: "Arthur Schopenhauer", c: "Philosophy", s: "--lapis", why: "The second volume, where Schopenhauer deepens and extends his system." },
+    { t: "Phenomenology of Spirit", a: "G.W.F. Hegel", c: "Philosophy", s: "--lapis", why: "Hegel's journey of consciousness, from simple perception to absolute knowing." },
+    { t: "The Age of Nothing", a: "Peter Watson", c: "Philosophy", s: "--lapis", why: "How thinkers and artists have sought meaning since the 'death of God'." },
+    { t: "Reality", a: "Peter Kingsley", c: "Philosophy", s: "--lapis", why: "The forgotten mystical roots of Western philosophy in Parmenides and Empedocles." },
+    { t: "The Parallax View", a: "Slavoj Žižek", c: "Philosophy", s: "--lapis", why: "Žižek's major work on the gap between perspectives that can never be closed." },
+    { t: "Kratylos, Parmenides", a: "Plato", c: "Philosophy", s: "--lapis", why: "Two dialogues on language and on being, in Dutch translation." },
+    { t: "The Agony of Eros", a: "Byung-Chul Han", c: "Philosophy", s: "--lapis", why: "How a culture of sameness makes real love, the encounter with the other, disappear." },
+    { t: "On the Infinite, the Universe and the Worlds", a: "Giordano Bruno", c: "Esoteric & alchemy", s: "--gold", why: "Bruno's vision of an infinite universe with countless worlds." },
+    { t: "On Magic", a: "Giordano Bruno", c: "Esoteric & alchemy", s: "--gold", why: "Bruno's Renaissance treatise on magic, bonds and the soul of the world." },
+    { t: "De Umbris Idearum: On the Shadows of Ideas", a: "Giordano Bruno", c: "Esoteric & alchemy", s: "--gold", why: "Bruno's art of memory as a path from shadows to the light of ideas." },
+    { t: "Giordano Bruno and the Hermetic Tradition", a: "Frances A. Yates", c: "Esoteric & alchemy", s: "--gold", why: "The classic study of Bruno as a Hermetic magus of the Renaissance." },
+    { t: "Hermetica II", a: "M. David Litwa", c: "Esoteric & alchemy", s: "--gold", why: "The excerpts of Stobaeus, papyrus fragments and ancient testimonies of the Hermetic tradition." },
+    { t: "The Sword of Moses", a: "Moses Gaster", c: "Esoteric & alchemy", s: "--gold", why: "An ancient book of magic from a unique Hebrew manuscript." },
+    { t: "The Ways of the Lonely Ones", a: "Manly P. Hall", c: "Esoteric & alchemy", s: "--gold", why: "A collection of mystical allegories about the path of the seeker." },
+    { t: "The Psychick Bible", a: "Genesis Breyer P-Orridge", c: "Esoteric & alchemy", s: "--gold", why: "The collected texts of Thee Temple ov Psychick Youth on magic and creativity." },
+    { t: "The Doors of Perception", a: "Aldous Huxley", c: "Consciousness & sacred geometry", s: "--sea", why: "Huxley's famous account of perception opened wide." },
+    { t: "More Than Allegory", a: "Bernardo Kastrup", c: "Consciousness & sacred geometry", s: "--sea", why: "On religious myth, truth and belief, from an idealist view of consciousness." },
+    { t: "The Little Book of Light Codes", a: "Lara", c: "Consciousness & sacred geometry", s: "--sea", why: "Short transmissions and symbols for working with light and energy." },
+    { t: "Freedom from the Known", a: "J. Krishnamurti", c: "Eastern & mystical wisdom", s: "--sea", why: "Krishnamurti on freeing the mind from conditioning, the clearest door into his teaching." },
+    { t: "Tao Te Ching", a: "Lao Tzu", c: "Eastern & mystical wisdom", s: "--sea", why: "The ancient book of the Way: simplicity, softness and non-action." },
+    { t: "The Path", a: "Michael Puett & Christine Gross-Loh", c: "Eastern & mystical wisdom", s: "--sea", why: "What Chinese philosophers can teach us about the good life." },
+    { t: "An Introduction to Zen Buddhism", a: "D.T. Suzuki", c: "Eastern & mystical wisdom", s: "--sea", why: "The classic introduction to Zen in English, with a foreword by C.G. Jung." },
+    { t: "The Sound of the One Hand", a: "Yoel Hoffmann", c: "Eastern & mystical wisdom", s: "--sea", why: "281 Zen koans with their traditional answers." },
+    { t: "The Book of Five Rings", a: "Miyamoto Musashi", c: "Eastern & mystical wisdom", s: "--sea", why: "The swordsman's classic on strategy, discipline and the way of the warrior." },
+    { t: "Nei Kung: The Secret Teachings of the Warrior Sages", a: "Kosta Danaos", c: "Eastern & mystical wisdom", s: "--sea", why: "Inner energy practices of the Taoist warrior tradition." },
+    { t: "The Garden of Truth", a: "Seyyed Hossein Nasr", c: "Eastern & mystical wisdom", s: "--sea", why: "The vision and promise of Sufism, Islam's mystical tradition." },
+    { t: "The Mountain Shadow", a: "Gregory David Roberts", c: "Myth & literature", s: "--lapis", why: "The sequel to Shantaram, set again in the streets of Bombay." },
+    { t: "Tropic of Cancer", a: "Henry Miller", c: "Myth & literature", s: "--lapis", why: "Miller's wild, unrestrained novel of life in 1930s Paris." },
+    { t: "Dancing by the Light of the Moon", a: "Gyles Brandreth", c: "Myth & literature", s: "--lapis", why: "How learning poetry by heart can transform your memory and change your life." }
   ];
+  var ORDER = ["Jung & depth psychology", "Psychology & relationships", "Philosophy", "Esoteric & alchemy", "Consciousness & sacred geometry", "Eastern & mystical wisdom", "Myth & literature", "Healing"];
+  BOOKS.sort(function (x, y) { return ORDER.indexOf(x.c) - ORDER.indexOf(y.c); });
   var cats = ["All"].concat(BOOKS.map(function (b) { return b.c; }).filter(function (c, i, a) { return a.indexOf(c) === i; }));
   var filtersEl = document.getElementById("filters"), shelfEl = document.getElementById("shelf");
   function amazon(b) {
     var q = encodeURIComponent(b.t + " " + b.a);
     return "https://" + AMAZON_STORE + "/s?k=" + q + "&i=stripbooks" + (AMAZON_TAG ? "&tag=" + AMAZON_TAG : "");
   }
+  var showAll = false, PREVIEW = 12, moreBtn = document.getElementById("moreBooks");
   function renderShelf(cat) {
     shelfEl.innerHTML = "";
-    BOOKS.filter(function (b) { return cat === "All" || b.c === cat; }).forEach(function (b) {
+    var list = BOOKS.filter(function (b) { return cat === "All" || b.c === cat; });
+    var cut = cat === "All" && !showAll;
+    moreBtn.hidden = !cut;
+    moreBtn.textContent = "Show all " + BOOKS.length + " books";
+    (cut ? list.slice(0, PREVIEW) : list).forEach(function (b) {
       var a = document.createElement("article"); a.className = "book";
       a.innerHTML = '<div class="spine"></div><div class="book-body"><span class="tag"></span><h3></h3><span class="by"></span><p></p></div><a class="buy" target="_blank" rel="noopener sponsored">View on Amazon</a>';
       a.querySelector(".spine").style.background = "var(" + b.s + ")";
@@ -782,6 +825,7 @@ footer nav a:hover { color: var(--turq); }
     var btn = document.createElement("button"); btn.type = "button"; btn.textContent = c;
     btn.onclick = function () { renderShelf(c); }; filtersEl.appendChild(btn);
   });
+  moreBtn.onclick = function () { showAll = true; renderShelf("All"); };
   renderShelf("All");
 
   /* ---------- forms (preview only, no backend yet) ---------- */
