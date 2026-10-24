@@ -15,26 +15,26 @@
    that alternate between open water and clear glass panes. One column of reading
    width, widened to grids only where the content is a set (keys, books, offers). */
 :root {
-  /* electric blue light dissolving into white, deep navy ink, a warm copper thread (from The Intention Experiment cover) */
-  --bg: #f8fbff;
-  --bg-2: #e8f2fd;
+  /* a tropical beach at midday: warm white sand, Caribbean turquoise water, sunlight pouring through, deep navy ink */
+  --bg: #fffef8;
+  --bg-2: #ddf8f2;
   --surface: rgba(255, 255, 255, .74);
   --surface-solid: #ffffff;
   --fg: #0b1f45;
-  --muted: #4a5f7e;
-  --line: rgba(30, 110, 210, .2);
+  --muted: #45607a;
+  --line: rgba(0, 170, 175, .22);
   --glass-edge: rgba(255, 255, 255, .95);
-  --sea: #2b9cf2;
-  --sea-2: #8fcdfb;
-  --turq: #1462b8;
-  --deep: #1a6cc8;
-  --gold: #a8502a;
-  --sun: #f2a463;
+  --sea: #1fd6c8;
+  --sea-2: #7ff0e4;
+  --turq: #007f8a;
+  --deep: #08a3ab;
+  --gold: #a87210;
+  --sun: #ffd34d;
   --rose: #c8693f;
-  --lapis: #2c4c9e;
+  --lapis: #2b7fd6;
   --on-turq: #061a3d;
-  --glow: rgba(43, 156, 242, .2);
-  --shadow: 0 12px 34px rgba(20, 70, 150, .10), 0 1px 0 rgba(255, 255, 255, .9) inset;
+  --glow: rgba(31, 214, 200, .22);
+  --shadow: 0 12px 34px rgba(0, 120, 135, .10), 0 1px 0 rgba(255, 255, 255, .9) inset;
 
   --f-display: "Marcellus", "Trajan Pro", Georgia, serif;
   --f-verse: "Cormorant Garamond", "Garamond", Georgia, serif;
@@ -84,7 +84,7 @@ p { margin: 0; }
 /* ---------- header ---------- */
 .site-head {
   position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9;
-  background: rgba(248, 251, 255, .8);
+  background: rgba(255, 254, 248, .82);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -100,9 +100,14 @@ p { margin: 0; }
 /* ---------- hero ---------- */
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line);
   background:
-    radial-gradient(60% 70% at 78% 45%, rgba(143, 205, 251, .8) 0%, rgba(43, 156, 242, .38) 40%, transparent 75%),
-    radial-gradient(55% 70% at 0% 0%, rgba(20, 110, 220, .28), transparent 70%),
-    linear-gradient(180deg, #f8fbff 0%, #dcebfb 100%); }
+    radial-gradient(45% 55% at 92% 0%, rgba(255, 238, 150, .95) 0%, rgba(255, 222, 110, .45) 30%, transparent 70%),
+    radial-gradient(60% 70% at 74% 55%, rgba(127, 240, 228, .85) 0%, rgba(31, 214, 200, .45) 42%, transparent 78%),
+    radial-gradient(50% 60% at 0% 100%, rgba(31, 214, 200, .25), transparent 70%),
+    linear-gradient(180deg, #fffef6 0%, #d3f6ef 100%); }
+.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-conic-gradient(from 200deg at 92% -8%, rgba(255, 244, 190, .32) 0deg 3deg, transparent 3deg 11deg);
+  -webkit-mask-image: radial-gradient(75% 90% at 92% 0%, #000 0%, transparent 75%); mask-image: radial-gradient(75% 90% at 92% 0%, #000 0%, transparent 75%); }
+.hero .wrap { position: relative; }
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: center; gap: 2rem; padding-block: clamp(3rem, 7vw, 6rem); }
 .hero h1 { font-size: var(--s4); letter-spacing: .01em; }
 .hero h1 span { display: block; color: var(--turq); }
@@ -130,7 +135,7 @@ p { margin: 0; }
 
 /* ---------- sections ---------- */
 section.band { padding-block: clamp(4rem, 9vw, 7.5rem); border-bottom: 1px solid var(--line); }
-section.band.alt { background: linear-gradient(180deg, var(--bg-2), #f4f8ff); }
+section.band.alt { background: linear-gradient(180deg, var(--bg-2), #fffef6); }
 .sec-head { display: grid; gap: 1rem; margin-bottom: clamp(2rem, 4vw, 3.2rem); max-width: 46rem; }
 .sec-head h2 { font-size: var(--s3); }
 .sec-head p { color: var(--muted); max-width: var(--measure); }
@@ -147,11 +152,11 @@ section.band.alt { background: linear-gradient(180deg, var(--bg-2), #f4f8ff); }
 #chart { width: 100%; height: auto; display: block; }
 #chart .edge { stroke-width: 2; fill: none; opacity: .6; }
 #chart .node { cursor: pointer; }
-#chart .node .gem { transition: transform .25s; transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 6px 10px rgba(20, 70, 150, .18)); }
+#chart .node .gem { transition: transform .25s; transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 6px 10px rgba(0, 120, 135, .18)); }
 #chart .node:hover .gem, #chart .node.on .gem { transform: scale(1.12); }
 #chart .node.on .gem { stroke: var(--fg); }
 #chart text { font-family: var(--f-mono); fill: var(--fg); pointer-events: none; }
-#chart .num { font-size: 20px; font-weight: 500; fill: #ffffff; stroke: rgba(6, 26, 61, .55); stroke-width: 3px; paint-order: stroke; }
+#chart .num { font-size: 20px; font-weight: 500; fill: var(--on-turq); }
 #chart .lbl { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; fill: var(--muted); }
 .seq-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: var(--s-1); color: var(--muted); margin-top: .8rem; }
 .seq-legend span { display: inline-flex; align-items: center; gap: .45rem; }
@@ -185,7 +190,7 @@ section.band.alt { background: linear-gradient(180deg, var(--bg-2), #f4f8ff); }
 .video { display: grid; text-decoration: none; color: var(--fg); background: var(--surface); border: 1px solid var(--glass-edge); box-shadow: var(--shadow); min-width: 0; transition: transform .2s; }
 .video:hover { transform: translateY(-3px); }
 .video .thumb { aspect-ratio: 16 / 9; max-width: 100%; display: grid; place-items: center; background-size: cover; background-position: center; }
-.video .play { width: 54px; height: 54px; border-radius: 50%; background: rgba(255, 255, 255, .85); display: grid; place-items: center; box-shadow: 0 6px 18px rgba(15, 50, 120, .2); }
+.video .play { width: 54px; height: 54px; border-radius: 50%; background: rgba(255, 255, 255, .85); display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0, 90, 100, .2); }
 .video .play svg { width: 20px; height: 20px; margin-left: 3px; fill: var(--deep); }
 .video .v-body { padding: 1rem 1.2rem 1.2rem; display: grid; gap: .3rem; }
 .video .v-src { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
@@ -689,7 +694,7 @@ footer nav a:hover { color: var(--turq); }
   VIDEOS.forEach(function (v, i) {
     var a = document.createElement("a"); a.className = "video"; a.href = v.url; a.target = "_blank"; a.rel = "noopener";
     a.innerHTML = '<div class="thumb"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span></div><div class="v-body"><span class="v-src"></span><h4></h4><p></p></div>';
-    var hues = ["#8fcdfb, #2b9cf2", "#cfe6fb, #1a6cc8", "#f6d2b5, #c8693f"];
+    var hues = ["#7ff0e4, #1fd6c8", "#fff1a8, #3fd9c9", "#b9f5ee, #08a3ab"];
     a.querySelector(".thumb").style.backgroundImage = (v.yt ? 'url("https://img.youtube.com/vi/' + v.yt + '/hqdefault.jpg"), ' : "") + "linear-gradient(135deg, " + hues[i % 3] + ")";
     a.querySelector(".v-src").textContent = v.by; a.querySelector("h4").textContent = v.t; a.querySelector("p").textContent = v.note;
     a.setAttribute("aria-label", v.t + ", opens video");
