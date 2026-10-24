@@ -729,6 +729,7 @@ footer nav a:hover { color: var(--turq); }
   var AMAZON_TAG = ""; /* add the Amazon Associates tag here, e.g. "stefanjohn-21" */
   var AMAZON_STORE = "www.amazon.com"; /* or "www.amazon.nl" */
   var BOOKS = [
+    { t: "The Red Book: Liber Novus", a: "C.G. Jung (ed. Sonu Shamdasani)", c: "Jung & depth psychology", s: "--rose", why: "Jung's own record of his confrontation with the unconscious, in his words and paintings. The heart of his work." },
     { t: "Owning Your Own Shadow", a: "Robert A. Johnson", c: "Jung & depth psychology", s: "--rose", why: "A short, clear book on the dark side of the psyche and how to reclaim what we have disowned." },
     { t: "Inner Work", a: "Robert A. Johnson", c: "Jung & depth psychology", s: "--rose", why: "A practical guide to working with dreams and active imagination for personal growth." },
     { t: "Ecstasy: Understanding the Psychology of Joy", a: "Robert A. Johnson", c: "Jung & depth psychology", s: "--rose", why: "The myth of Dionysus as a key to the joy modern life has lost." },
@@ -836,7 +837,22 @@ footer nav a:hover { color: var(--turq); }
     { t: "The Collected Poems of W.B. Yeats", a: "W.B. Yeats", c: "Myth & literature", s: "--lapis", why: "The complete poems of the great Irish poet and mystic." },
     { t: "Island", a: "Aldous Huxley", c: "Myth & literature", s: "--lapis", why: "Huxley's last novel: a vision of a wise and awakened society." },
     { t: "The Man Who Died Twice", a: "Richard Osman", c: "Myth & literature", s: "--lapis", why: "The second Thursday Murder Club mystery, warm and very funny." },
-    { t: "Godverdomse dagen op een godverdomse bol", a: "Dimitri Verhulst", c: "Myth & literature", s: "--lapis", why: "Verhulst's irreverent retelling of the history of humankind, in Dutch." }
+    { t: "Godverdomse dagen op een godverdomse bol", a: "Dimitri Verhulst", c: "Myth & literature", s: "--lapis", why: "Verhulst's irreverent retelling of the history of humankind, in Dutch." },
+    { t: "Meeting the Shadow", a: "Connie Zweig & Jeremiah Abrams (eds.)", c: "Jung & depth psychology", s: "--rose", why: "Jung, Bly, Campbell, Hillman and many others on the hidden power of the dark side of human nature." },
+    { t: "The Professional Practice of Jungian Coaching", a: "Nada O'Brien & John O'Brien (eds.)", c: "Jung & depth psychology", s: "--rose", why: "How Jung's psychology becomes a practical method for coaching." },
+    { t: "The Art of Receiving and Giving", a: "Betty Martin", c: "Psychology & relationships", s: "--rose", why: "The Wheel of Consent: a clear map of touch, boundaries and consent." },
+    { t: "The Power of Your Subconscious Mind", a: "Joseph Murphy", c: "Psychology & relationships", s: "--rose", why: "The classic on how beliefs held below awareness shape our lives." },
+    { t: "Waarom het leven sneller gaat als je ouder wordt", a: "Douwe Draaisma", c: "Psychology & relationships", s: "--rose", why: "The secrets of memory, and why time speeds up with age, in Dutch." },
+    { t: "Nobility of Spirit", a: "Rob Riemen", c: "Philosophy", s: "--lapis", why: "A plea for a forgotten ideal: a life of truth, beauty and dignity." },
+    { t: "The Book of Thoth", a: "Aleister Crowley", c: "Esoteric & alchemy", s: "--gold", why: "Crowley's guide to the Egyptian tarot he created with Lady Frieda Harris." },
+    { t: "The Occult Anatomy of Man", a: "Manly P. Hall", c: "Esoteric & alchemy", s: "--gold", why: "The human body as a symbol of spiritual mysteries." },
+    { t: "The Pineal Gland: The Eye of God", a: "Manly P. Hall", c: "Esoteric & alchemy", s: "--gold", why: "Hall on the pineal gland as the seat of spiritual sight." },
+    { t: "The Seven Creative Principles", a: "Hiram Erastus Butler", c: "Esoteric & alchemy", s: "--gold", why: "Seven lectures on the principles behind creation." },
+    { t: "Encyclopedie van tekens en symbolen", a: "John Laing & David Wire", c: "Esoteric & alchemy", s: "--gold", why: "An illustrated encyclopedia of more than 2,500 signs and symbols from around the world, in Dutch." },
+    { t: "Your Psilocybin Mushroom Companion", a: "Michelle Janikian", c: "Consciousness & sacred geometry", s: "--sea", why: "An informative, easy-to-use guide to understanding magic mushrooms." },
+    { t: "Entangled in Sunlight", a: "Greg Kaminsky", c: "Wisdom traditions", s: "--sea", why: "A poet's journey from Western esotericism to Buddhist tantra." },
+    { t: "William Blake: The Complete Illuminated Books", a: "William Blake", c: "Myth & literature", s: "--lapis", why: "Blake's visionary poems in his own illuminated pages." },
+    { t: "The Pleasures of the Damned", a: "Charles Bukowski", c: "Myth & literature", s: "--lapis", why: "Selected poems, 1951 to 1993." }
   ];
   var ORDER = ["Jung & depth psychology", "Psychology & relationships", "Philosophy", "Esoteric & alchemy", "Consciousness & sacred geometry", "Wisdom traditions", "Myth & literature", "Healing"];
   BOOKS.sort(function (x, y) { return ORDER.indexOf(x.c) - ORDER.indexOf(y.c); });
